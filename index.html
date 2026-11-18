@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>דוח הרכב גוף</title>
+<style>
+  :root { --bg: #f3f5fb; --card: #fff; --ink: #18213f; --muted: #5d6685; --accent: #2a3bd1; --line: #d8ddee; --err: #b3261e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--ink); }
+  header { background: #1a2470; color: #fff; padding: 14px 24px; display: flex; align-items: center; gap: 12px; }
+  header h1 { font-size: 20px; margin: 0; font-weight: 600; }
+  main { display: grid; grid-template-columns: 380px 1fr; gap: 20px; padding: 20px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: 0 1px 3px #0001, 0 4px 14px #00000008; }
+  .card h2 { margin: 0 0 12px; font-size: 16px; }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+  input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: #fff; color: inherit; }
+  textarea { height: 150px; font-family: Consolas, monospace; font-size: 12px; direction: ltr; }
+  .row { display: flex; gap: 8px; }
+  .row > * { flex: 1; }
+  button { padding: 9px 14px; border-radius: 8px; border: 1px solid var(--accent); background: #fff; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; }
+  button:disabled { opacity: .45; cursor: default; }
+  .sep { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
+  .status { margin-top: 12px; font-size: 14px; min-height: 20px; }
+  .status.err { color: var(--err); }
+  .info { font-size: 14px; line-height: 1.7; }
+  .info b { color: var(--accent); }
+  .preview { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .preview canvas { width: 100%; max-width: 640px; height: auto; border-radius: 6px; box-shadow: 0 2px 10px #0002; background: #fff; }
+  .empty { color: var(--muted); padding: 60px 0; text-align: center; }
+  .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<header><h1>דוח הרכב גוף — הפקת PDF</h1></header>
+<main>
+  <section class="card">
+    <h2>טעינת נתוני בדיקה</h2>
+    <button id="currentBtn" class="primary" style="width:100%">טען את הסשן הפעיל מהשרת</button>
+    <label for="sessionId">Session ID</label>
+    <input id="sessionId" list="ids" placeholder="SES-20261118-7F3A" dir="ltr">
+    <datalist id="ids"></datalist>
+    <label for="subjectId">מזהה נבדק (אופציונלי — לאימות)</label>
+    <div class="row">
+      <input id="subjectId" placeholder="P-1001" dir="ltr">
+      <button id="fetchBtn" style="flex:0 0 auto">טען סשן</button>
+    </div>
+
+    <hr class="sep">
+    <label for="fileInput">או: קובץ JSON של בדיקה</label>
+    <input id="fileInput" type="file" accept=".json,application/json">
+    <label for="jsonText">או: הדבקת JSON</label>
+    <textarea id="jsonText" placeholder='{"subject":{"gender":"female",...},"total_body_fat_pct":23.4,...}'></textarea>
+    <button id="jsonBtn" style="margin-top:8px">הצג מה-JSON</button>
+
+    <hr class="sep">
+    <label><input type="checkbox" id="summaryChk" style="width:auto"> הוסף עמוד סיכום עם טבלת ערכים</label>
+    <div class="status" id="status"></div>
+    <div class="info" id="info"></div>
+  </section>
+
+  <section class="card">
+    <div class="toolbar">
+      <button id="pdfBtn" class="primary" disabled>הורד PDF</button>
+      <span id="fileName" style="color:var(--muted);font-size:13px" dir="ltr"></span>
+    </div>
+    <div class="preview" id="preview"><div class="empty">טען בדיקה כדי לראות את הדוח</div></div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/layouts.js"></script>
+<script src="js/report.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

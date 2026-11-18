@@ -1,0 +1,20 @@
+{
+  "session_id": "SES-20261118-B21C",
+  "subject": { "id": "P-1002", "name": "Demo Male B", "gender": "male", "age": 47, "height_cm": 178, "weight_kg": 96.4 },
+  "test_date": "2026-11-18",
+  "total_body_fat_pct": 33.2,
+  "total_muscle_pct": 36.1,
+  "segments": {
+    "right_arm": { "fat_kg": 2.3, "muscle_kg": 4.6 },
+    "left_arm":  { "fat_kg": 2.4, "muscle_kg": 4.4 },
+    "trunk":     { "fat_kg": 17.8 },
+    "right_leg": { "fat_kg": 6.1, "muscle_kg": 12.2 },
+    "left_leg":  { "fat_kg": 6.2, "muscle_kg": 12.0 }
+  },
+  "waist_hip_ratio": 1.01,
+  "subcutaneous_fat": { "pct": 26.4, "kg": 15.9 },
+  "visceral_fat": { "kg": 3.8, "level": 14 },
+  "body_fluids": { "icf_pct": 35, "ecf_pct": 65 },
+  "minerals": { "kg": 3.9, "pct": 4.1 },
+  "bone": { "mass_kg": 3.2, "bmc_kg": 2.9 }
+}

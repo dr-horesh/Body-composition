@@ -1,0 +1,20 @@
+{
+  "session_id": "SES-20261116-C05B",
+  "subject": { "id": "P-1004", "name": "Demo Female D", "gender": "female", "age": 58, "height_cm": 160, "weight_kg": 104.5 },
+  "test_date": "2026-11-16",
+  "total_body_fat_pct": 53.1,
+  "total_muscle_pct": 25.4,
+  "segments": {
+    "right_arm": { "fat_kg": 2.6, "muscle_kg": 1.8 },
+    "left_arm":  { "fat_kg": 2.7, "muscle_kg": 1.7 },
+    "trunk":     { "fat_kg": 25.2 },
+    "right_leg": { "fat_kg": 8.1, "muscle_kg": 6.2 },
+    "left_leg":  { "fat_kg": 8.0, "muscle_kg": 6.1 }
+  },
+  "waist_hip_ratio": 0.99,
+  "subcutaneous_fat": { "pct": 36.8, "kg": 21.4 },
+  "visceral_fat": { "kg": 3.8, "level": 16 },
+  "body_fluids": { "icf_pct": 27, "ecf_pct": 73 },
+  "minerals": { "kg": 2.7, "pct": 3.9 },
+  "bone": { "mass_kg": 2.3, "bmc_kg": 2.0 }
+}
